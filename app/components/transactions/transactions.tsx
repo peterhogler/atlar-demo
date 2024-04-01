@@ -12,8 +12,8 @@ export default function Transactions({ transactions }: Props) {
     return (
         <div className="flex flex-col h-full gap-4">
             <div className="inline-flex items-center gap-4 font-medium">
-                <div className="py-2 px-4 rounded-full bg-amber-300">Suspicious Payments (0)</div>
-                <div className="py-2 px-4  rounded-full bg-red-500">Returned Payments (1)</div>
+                <div className="py-2 px-4 rounded-full border bg-red-50">Suspicious Payments (0)</div>
+                <div className="py-2 px-4  rounded-full border bg-amber-50">Returned Payments (1)</div>
             </div>
             <div className="h-full flex flex-col bg-gradient-to-t from-transparent to-gray-50  rounded-lg ">
                 <div className="flex px-4 py-4 font-bold bg-white rounded-t-lg border-x border-t">
