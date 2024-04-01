@@ -16,7 +16,7 @@ const fetchAtlarAccounts = async () => {
         if (!response.ok) {
             throw new Error(`API call failed with status: ${response.status}`);
         }
-        
+
         const { items } = await response.json();
         return items;
     } catch (error) {

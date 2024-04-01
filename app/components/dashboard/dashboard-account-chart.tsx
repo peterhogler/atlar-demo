@@ -41,8 +41,8 @@ export default function DashboardAccountChart() {
                 <div className="font-bold">
                     <span>Cash Position</span>
                 </div>
-                <select className="p-2 border bg-transparent rounded-lg font-bold" name="filter" id="filter">
-                    <option className="inline-flex gap-2 " value="30" selected>
+                <select className="p-2 border bg-transparent rounded-lg font-bold" name="filter" id="filter" defaultValue="30">
+                    <option className="inline-flex gap-2 " value="30" defaultValue="">
                         Last 30 Days
                     </option>
                     <option className="inline-flex" value="7">

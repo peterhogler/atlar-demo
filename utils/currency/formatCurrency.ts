@@ -1,6 +1,6 @@
-export type CurrencyType = "EUR" | "USD" | "GBP" | "SEK" | "DKK";
+import { Currency } from "./convertCurrencyToUSD";
 
-export function formatCurrency(value: string, currencyCode: CurrencyType): string {
+export function formatCurrency(value: string, currencyCode: Currency): string {
     let locale;
     switch (currencyCode) {
         case "EUR":

@@ -2,7 +2,7 @@ import { MdOutlineAddCard } from "react-icons/md";
 
 export default function HeaderNavigation({ title }: { title: string }) {
     return (
-        <nav className="relative flex justify-between items-center px-4 py-3 border-y border rounded-lg">
+        <nav className="flex justify-between items-center px-4 py-3 border-y border rounded-lg">
             <div className="font-bold text-lg inline-flex items-center gap-2 ">
                 <span>{title}</span>
             </div>

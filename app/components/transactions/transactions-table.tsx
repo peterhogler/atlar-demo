@@ -1,8 +1,8 @@
 "use client";
-import { CurrencyType, formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/currency/formatCurrency";
 import React, { useState } from "react";
 
-interface Balance {
+interface Transaction {
     id: string;
     organizationId: string;
     accountId: string;
@@ -19,37 +19,24 @@ interface Balance {
 }
 
 interface BalanceTableProps {
-    balances: Balance[];
+    balances: any;
 }
 
 const TransactionsTable: React.FC<BalanceTableProps> = ({ balances }) => {
-    const [currentPage, setCurrentPage] = useState(1);
-    const [balancesPerPage] = useState(10);
-
-    const indexOfLastBalance = currentPage * balancesPerPage;
-    const indexOfFirstBalance = indexOfLastBalance - balancesPerPage;
-    const currentBalances = balances.slice(indexOfFirstBalance, indexOfLastBalance);
-
-    const totalPages = Math.ceil(balances.length / balancesPerPage);
-    const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
-
-    const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-
     return (
-        <div className="flex flex-col min-h-full overflow-scroll">
-            <table className="table-fixed flex-1 min-w-full leading-normal">
+        <div className="h-max flex flex-col overflow-scroll  ">
+            <table className="table-fixed    flex-1  min-w-full leading-normal ">
                 <thead>
                     <tr className="text-left bg-white ">
-                        <th className="border px-4 py-2">Account</th>
-                        <th className="border px-4 py-2">Account Bank</th>
-                        <th className="border px-4 py-2">Amount</th>
-                        <th className="border px-4 py-2">Description</th>
-                        <th className="border px-4 py-2">Date</th>
+                        <th className="p-4 border">Account</th>
+                        <th className="p-4 border">Account Bank</th>
+                        <th className="p-4 border">Amount</th>
+                        <th className="p-4 border">Description</th>
+                        <th className="p-4 border">Date</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {currentBalances.map((balance: any) => {
-                        console.log(balance);
+                    {balances.map((balance: any) => {
                         return (
                             <tr className="border " key={balance.id}>
                                 <td className="border px-4 py-1">{balance.account.name}</td>
@@ -62,21 +49,6 @@ const TransactionsTable: React.FC<BalanceTableProps> = ({ balances }) => {
                     })}
                 </tbody>
             </table>
-            <div className="flex justify-center items-center gap-2 p-4 border-x border-b rounded-b-lg">
-                <button onClick={() => setCurrentPage((currentPage) => Math.max(currentPage - 1, 1))} className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded" disabled={currentPage === 1}>
-                    &lt;
-                </button>
-
-                {pageNumbers.map((number) => (
-                    <button key={number} onClick={() => paginate(number)} className={`${currentPage === number ? "bg-gray-500 text-white" : "bg-gray-200 text-gray-800"}  font-semibold py-2 px-4 rounded hover:bg-gray-300`}>
-                        {number}
-                    </button>
-                ))}
-
-                <button onClick={() => setCurrentPage((currentPage) => Math.min(currentPage + 1, pageNumbers.length))} className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded" disabled={currentPage === pageNumbers.length}>
-                    &gt;
-                </button>
-            </div>
         </div>
     );
 };

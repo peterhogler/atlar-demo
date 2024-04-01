@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/currency/formatCurrency";
 import DashboardAccountCardChart from "./dashboard-account-card-chart";
 
 const USERNAME = "hUfCzFeteKCZgfotD59I";

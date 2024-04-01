@@ -1,5 +1,5 @@
 "use client";
-import { CurrencyType, formatCurrency } from "@/utils/formatCurrency";
+import { CurrencyType, formatCurrency } from "@/utils/currency/formatCurrency";
 import React, { useState } from "react";
 
 // Props type definition
@@ -25,7 +25,7 @@ interface BalanceTableProps {
 
 const BalanceTable: React.FC<BalanceTableProps> = ({ balances }) => {
     const [currentPage, setCurrentPage] = useState(1);
-    const [balancesPerPage] = useState(10);
+    const [balancesPerPage] = useState(7);
 
     const indexOfLastBalance = currentPage * balancesPerPage;
     const indexOfFirstBalance = indexOfLastBalance - balancesPerPage;
@@ -37,8 +37,8 @@ const BalanceTable: React.FC<BalanceTableProps> = ({ balances }) => {
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
     return (
-        <div className="flex flex-col min-h-full overflow-scroll">
-            <table className="table-fixed flex-1 min-w-full leading-normal">
+        <div className="h-full flex flex-col">
+            <table className="flex-1 min-w-full leading-normal">
                 <thead>
                     <tr className="text-left bg-white ">
                         <th className="border px-4 py-2">Org ID</th>
@@ -62,7 +62,7 @@ const BalanceTable: React.FC<BalanceTableProps> = ({ balances }) => {
                     ))}
                 </tbody>
             </table>
-            <div className="flex justify-center items-center gap-2 p-4 border-x border-b rounded-b-lg">
+            <div className="mt-auto flex justify-center items-center gap-2 p-4 border-x border-b rounded-b-lg">
                 <button onClick={() => setCurrentPage((currentPage) => Math.max(currentPage - 1, 1))} className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded" disabled={currentPage === 1}>
                     &lt;
                 </button>

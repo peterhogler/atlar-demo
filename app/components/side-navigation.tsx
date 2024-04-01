@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function SideNavigation() {
     const pathname = usePathname();
     return (
-        <aside className="flex flex-col min-w-[230px] h-full border  rounded-lg font-bold">
+        <aside className="hidden xl:flex flex-col min-w-[230px] h-full border  rounded-lg font-bold">
             <div className="text-xl py-5 px-4 border-b">Atlar</div>
             <div className="flex flex-col h-full  px-4 py-4  gap-5 ">
                 <hr />

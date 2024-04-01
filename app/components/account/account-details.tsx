@@ -1,7 +1,7 @@
 import React from "react";
 import DashboardAccountChart from "../dashboard/dashboard-account-chart";
 import BalanceTable from "./balance-table";
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/currency/formatCurrency";
 
 interface Props {
     balances?: any;
@@ -10,7 +10,7 @@ interface Props {
 
 export default function AccountDetailsDashboard({ balances, accountId }: Props) {
     return (
-        <div className="flex flex-col h-full gap-4">
+        <div className="h-full flex flex-col gap-4">
             <div className="h-full flex flex-col  gap-4">
                 <div className="flex items-center gap-5 ">
                     <div className="inline-flex gap-5">
@@ -42,7 +42,7 @@ export default function AccountDetailsDashboard({ balances, accountId }: Props) 
                         </select>
                     </div>
                 </div>
-                <div className="flex flex-col h-full  gap-4 overflow-scroll">
+                <div className="flex flex-col h-full   gap-4">
                     <BalanceTable balances={balances} />
                 </div>
             </div>
