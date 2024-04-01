@@ -10,10 +10,10 @@ const conversionRates: Record<Currency, number> = {
     USD: 1, // 1 USD = 1 USD
 };
 
-const convertCurrencyToUSD = (amount: number, currency: Currency): number => {
+const convertCurrencyToUSD = (stringValue: string, currency: Currency): number => {
+    const numericValue = parseFloat(stringValue.replace(/,/g, ""));
     const rate = conversionRates[currency] || 1;
-    // Apply the conversion rate directly to the amount, keeping its sign (positive or negative)
-    return amount * rate;
+    return numericValue * rate;
 };
 
 export default convertCurrencyToUSD;

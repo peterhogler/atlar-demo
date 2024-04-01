@@ -7,6 +7,7 @@ interface Transaction {
     amount: {
         value: number;
         currency: string;
+        stringValue: string;
     };
     characteristics?: {
         returned?: boolean;
@@ -23,15 +24,12 @@ export default function Transactions({ transactions }: Props) {
     const [currentPage, setCurrentPage] = useState(1);
     const [transactionsPerPage] = useState(18);
 
-    useEffect(() => {
-        setFilteredTransactions(transactions);
-    }, [transactions]);
-
     const returnedTransactions = transactions.filter((transaction) => transaction.characteristics?.returned);
 
     const suspiciousTransactions = transactions.filter((transaction) => {
-        const amountInUSD = convertCurrencyToUSD(transaction.amount.value, transaction.amount.currency as Currency);
-        return amountInUSD < -5000;
+        console.log(transaction);
+        const amountInUSD = convertCurrencyToUSD(transaction.amount.stringValue, transaction.amount.currency as Currency);
+        return amountInUSD <= -5000;
     });
 
     const indexOfLastBalance = currentPage * transactionsPerPage;
@@ -44,19 +42,24 @@ export default function Transactions({ transactions }: Props) {
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
     const handleShowAllTransactions = () => {
-        setCurrentPage(1); // Reset to first page when changing filters.
+        setCurrentPage(1);
         setFilteredTransactions(transactions);
+        console.log("Showing all transactions");
     };
 
     const handleShowSuspiciousTransactions = () => {
-        setCurrentPage(1); // Reset to first page when changing filters.
+        setCurrentPage(1);
         setFilteredTransactions(suspiciousTransactions);
     };
 
     const handleShowReturnedTransactions = () => {
-        setCurrentPage(1); // Reset to first page when changing filters.
+        setCurrentPage(1);
         setFilteredTransactions(returnedTransactions);
     };
+
+    useEffect(() => {
+        setFilteredTransactions(transactions);
+    }, [transactions]);
 
     return (
         <div className="flex flex-col h-full gap-4">
@@ -74,7 +77,7 @@ export default function Transactions({ transactions }: Props) {
             <div className="flex-1">
                 <TransactionsTable balances={currentBalances} /> {/* Render sliced currentBalances */}
             </div>
-            <div className="flex justify-center items-center gap-2 mt-auto border p-2 rounded-lg">
+            <div className="flex justify-center items-center gap-2 mt-auto border p-2 rounded-lg bg-slate-50">
                 <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded" disabled={currentPage === 1}>
                     &lt;
                 </button>
