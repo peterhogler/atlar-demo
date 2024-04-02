@@ -22,7 +22,7 @@ interface Props {
 export default function Transactions({ transactions }: Props) {
     const [filteredTransactions, setFilteredTransactions] = useState<Transaction[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [transactionsPerPage] = useState(18);
+    const [transactionsPerPage] = useState(28);
 
     const returnedTransactions = transactions.filter((transaction) => transaction.characteristics?.returned);
 
