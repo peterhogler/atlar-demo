@@ -11,8 +11,8 @@ export default function Dashboard({ accounts }: DashboardProps) {
                 <DashboardAccountSummary accounts={accounts} />
                 <DashboardAccountChart />
             </div>
-            <div className="h-full flex flex-col bg-gradient-to-t from-transparent to-gray-50 border rounded-lg ">
-                <div className="flex items-center px-4 py-3 border-b font-bold bg-white rounded-t-lg">
+            <div className="h-full flex flex-col border rounded-lg ">
+                <div className="flex items-center px-4 py-3 border-b  bg-white rounded-t-lg">
                     <div className="inline-flex items-center space-x-4">
                         <span>Accounts ({accounts.length})</span>
                         <div className="border-r h-[20px]" />
@@ -23,7 +23,7 @@ export default function Dashboard({ accounts }: DashboardProps) {
                     </div>
                     <div className="ml-auto inline-flex items-center gap-2">
                         <label htmlFor="currency">Currency</label>
-                        <select className="p-2 border bg-transparent rounded-lg font-bold" name="currency" id="currency" defaultValue={"SEK"}>
+                        <select className="p-2 border bg-transparent rounded-lg" name="currency" id="currency" defaultValue={"SEK"}>
                             <option value="SEK">SEK</option>
                             <option value="USD">USD</option>
                             <option value="GBP">GBP</option>

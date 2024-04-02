@@ -10,10 +10,9 @@ interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[];
     data: TData[];
     transactionsPerPage: number;
-    containerRef?: any;
 }
 
-export function DataTable<TData, TValue>({ columns, data, transactionsPerPage, containerRef }: DataTableProps<TData, TValue>) {
+export function DataTable<TData, TValue>({ columns, data, transactionsPerPage }: DataTableProps<TData, TValue>) {
     if (!transactionsPerPage) return;
 
     console.log(transactionsPerPage);
@@ -34,7 +33,7 @@ export function DataTable<TData, TValue>({ columns, data, transactionsPerPage, c
 
     return (
         <div className="flex h-full flex-col flex-1">
-            <div className="h-full rounded-lg border-t border-x border-b-0" ref={containerRef}>
+            <div className="h-full rounded-lg border-t border-x border-b-0">
                 <Table>
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (

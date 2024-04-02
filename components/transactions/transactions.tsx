@@ -6,6 +6,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { formatCurrency } from "@/utils/currency/formatCurrency";
 import { Currency, Transaction } from "@/typings/account.typings";
 import { TransactionsProps } from "@/typings/component.typings";
+import Link from "next/link";
 
 const columns: ColumnDef<Transaction>[] = [
     {
@@ -50,6 +51,19 @@ const columns: ColumnDef<Transaction>[] = [
             return <div>{displayText}</div>;
         },
     },
+    {
+        accessorKey: "account.id",
+        header: "Details",
+        cell: (info) => {
+            const object = info.row.original;
+            const id = object.account.id;
+            return (
+                <Link href={`/account/${id}`} className="border px-2 py-1 w-max bg-slate-50 rounded-full">
+                    Details
+                </Link>
+            );
+        },
+    },
 ];
 
 export default function Transactions({ transactions }: TransactionsProps) {
@@ -91,7 +105,7 @@ export default function Transactions({ transactions }: TransactionsProps) {
 
     return (
         <div className="flex flex-col h-full gap-4 ">
-            <div className="inline-flex items-center gap-4 font-medium">
+            <div className="inline-flex items-center gap-4 ">
                 <button className="py-1 px-4 rounded-full border bg-slate-50/20" onClick={handleShowAllTransactions}>
                     Show All ({transactions.length})
                 </button>

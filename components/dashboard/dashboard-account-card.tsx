@@ -37,10 +37,10 @@ export default async function DashboardAccountCard({ account, accountId }: Dashb
                 <div className="p-4 space-y-1">
                     <div className="flex items-center justify-between">
                         <div>
-                            <div className="font-bold text-lg">{account.name}</div>
-                            <div>{formatCurrency(account.balance.amount.stringValue, account.balance.amount.currency)}</div>
+                            <div className=" text-lg">{account.name}</div>
+                            <div className="font-medium">{formatCurrency(account.balance.amount.stringValue, account.balance.amount.currency)}</div>
                         </div>
-                        <div className="font-medium">{account.balance.amount.currency}</div>
+                        <div>{account.balance.amount.currency}</div>
                     </div>
                     <hr />
                 </div>

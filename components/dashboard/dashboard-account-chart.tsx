@@ -36,12 +36,12 @@ export default function DashboardAccountChart() {
         },
     ];
     return (
-        <div className="flex flex-col w-full border bg-gradient-to-t from-transparent to-gray-50 h-full rounded-lg">
+        <div className="flex flex-col w-full border  h-full rounded-lg">
             <div className="flex items-center justify-between px-4 py-3  border-b gap-4 bg-white overfl rounded-t-lg">
-                <div className="font-bold">
+                <div>
                     <span>Cash Position</span>
                 </div>
-                <select className="p-2 border bg-transparent rounded-lg font-bold" name="filter" id="filter" defaultValue="30">
+                <select className="p-2 border bg-transparent rounded-lg" name="filter" id="filter" defaultValue="30">
                     <option className="inline-flex gap-2 " value="30" defaultValue="">
                         Last 30 Days
                     </option>

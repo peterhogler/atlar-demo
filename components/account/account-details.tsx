@@ -93,7 +93,7 @@ export default function AccountDetailsDashboard({ balances }: Props) {
                 <DashboardAccountChart />
             </div>
             <div className="h-full flex flex-col  rounded-lg ">
-                <div className="flex px-4 py-4 font-bold bg-white rounded-t-lg border-x border-t">
+                <div className="flex px-4 py-4  bg-white rounded-t-lg border-x border-t">
                     <div className="w-full inline-flex  items-center space-x-4">
                         <span>Transactions</span>
                         <div className="border-r h-[15px]"></div>
@@ -104,7 +104,7 @@ export default function AccountDetailsDashboard({ balances }: Props) {
                     </div>
                     <div className="ml-auto flex items-center gap-2 whitespace-nowrap">
                         <label htmlFor="type">Reported Type</label>
-                        <select className="p-2 border bg-transparent rounded-lg font-bold" name="currency" id="currency" defaultValue={""}>
+                        <select className="p-2 border bg-transparent rounded-lg " name="currency" id="currency" defaultValue={""}>
                             <option value="" selected>
                                 All
                             </option>
