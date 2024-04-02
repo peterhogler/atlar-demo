@@ -1,6 +1,6 @@
 // /utils/currency/convertCurrencyToUSD.ts
 
-export type Currency = "EUR" | "GBP" | "SEK" | "DKK" | "USD";
+import { Currency } from "@/typings/account.typings";
 
 const conversionRates: Record<Currency, number> = {
     EUR: 1, // 1 EUR = 1 USD

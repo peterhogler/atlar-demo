@@ -1,6 +1,6 @@
-import AccountDetailsDashboard from "../components/account/account-details";
-import HeaderNavigation from "../components/header-navigation";
-import Transactions from "../components/transactions/transactions";
+import AccountDetailsDashboard from "../../components/account/account-details";
+import HeaderNavigation from "../../components/header-navigation";
+import Transactions from "../../components/transactions/transactions";
 
 const USERNAME = "hUfCzFeteKCZgfotD59I";
 const PASSWORD = "xmYWTEClhhl9720KE7ccC5FsqRhD8UsTDlpxzJPW2AN34iHE3jl0zgaPcpKfeocQhb_g";

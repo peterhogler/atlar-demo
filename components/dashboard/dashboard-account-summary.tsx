@@ -1,4 +1,6 @@
-export default function DashboardAccountSummary({ accounts }: { accounts?: any }) {
+import { Account } from "@/typings/account.typings";
+
+export default function DashboardAccountSummary({ accounts }: { accounts?: Account[] }) {
     return (
         <div className="h-full flex flex-col w-full border rounded-lg bg-gradient-to-t from-transparent to-gray-50">
             <div className="flex items-center px-4 py-5  border-b gap-4 bg-white rounded-t-lg">

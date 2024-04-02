@@ -1,6 +1,6 @@
 import { MdArrowBack } from "react-icons/md";
-import AccountDetailsDashboard from "@/app/components/account/account-details";
-import HeaderNavigation from "@/app/components/header-navigation";
+import AccountDetailsDashboard from "@/components/account/account-details";
+import HeaderNavigation from "@/components/header-navigation";
 import Link from "next/link";
 
 const USERNAME = "hUfCzFeteKCZgfotD59I";

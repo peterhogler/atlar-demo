@@ -1,10 +1,11 @@
-import Dashboard from "./components/dashboard/dashboard";
-import HeaderNavigation from "./components/header-navigation";
+import { Account } from "@/typings/account.typings";
+import Dashboard from "../components/dashboard/dashboard";
+import HeaderNavigation from "../components/header-navigation";
 
 const USERNAME = "hUfCzFeteKCZgfotD59I";
 const PASSWORD = "xmYWTEClhhl9720KE7ccC5FsqRhD8UsTDlpxzJPW2AN34iHE3jl0zgaPcpKfeocQhb_g";
 
-const fetchAtlarAccounts = async () => {
+const fetchAtlarAccounts = async (): Promise<Account[]> => {
     try {
         const response = await fetch("https://api.atlar.com/v1/accounts", {
             method: "GET",

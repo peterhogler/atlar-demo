@@ -1,4 +1,4 @@
-import { Currency } from "./convertCurrencyToUSD";
+import { Currency } from "@/typings/account.typings";
 
 export function formatCurrency(value: string, currencyCode: Currency): string {
     let locale;

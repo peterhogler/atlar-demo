@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Karla } from "next/font/google";
 import "./globals.css";
-import SideNavigation from "./components/side-navigation";
+import SideNavigation from "../components/side-navigation";
 
 const karla = Karla({ subsets: ["latin"] });
 

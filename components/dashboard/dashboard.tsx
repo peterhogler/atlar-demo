@@ -1,15 +1,10 @@
-import Link from "next/link";
 import DashboardAccountSummary from "./dashboard-account-summary";
 import DashboardAccountChart from "./dashboard-account-chart";
-import dynamic from "next/dynamic";
 import React from "react";
 import DashboardAccountCard from "./dashboard-account-card";
+import { DashboardProps } from "@/typings/component.typings";
 
-interface Props {
-    accounts: any[];
-}
-
-export default function Dashboard({ accounts }: Props) {
+export default function Dashboard({ accounts }: DashboardProps) {
     return (
         <div className="h-full flex flex-col gap-4">
             <div className=" flex flex-col xl:flex-row gap-4">
