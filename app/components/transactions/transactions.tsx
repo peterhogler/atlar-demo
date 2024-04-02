@@ -64,13 +64,13 @@ export default function Transactions({ transactions }: Props) {
     return (
         <div className="flex flex-col h-full gap-4">
             <div className="inline-flex items-center gap-4 font-medium">
-                <button className="py-2 px-4 rounded-full border" onClick={handleShowAllTransactions}>
+                <button className="py-2 px-4 rounded-full border bg-slate-50" onClick={handleShowAllTransactions}>
                     Show All ({transactions.length})
                 </button>
-                <button className="py-2 px-4 rounded-full border bg-red-50" onClick={handleShowSuspiciousTransactions}>
+                <button className="py-2 px-4 rounded-full border bg-red-100 border-red-100" onClick={handleShowSuspiciousTransactions}>
                     Suspicious Payments ({suspiciousTransactions.length})
                 </button>
-                <button className="py-2 px-4 rounded-full border bg-amber-50" onClick={handleShowReturnedTransactions}>
+                <button className="py-2 px-4 rounded-full border bg-amber-100 border-amber-100" onClick={handleShowReturnedTransactions}>
                     Returned Payments ({returnedTransactions.length})
                 </button>
             </div>

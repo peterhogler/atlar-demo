@@ -38,15 +38,14 @@ const TransactionsTable: React.FC<BalanceTableProps> = ({ balances }) => {
                 </thead>
                 <tbody>
                     {balances.map((balance: any) => {
-                        console.log(balance);
                         return (
                             <tr className="border " key={balance.id}>
                                 <td className="border px-4 py-1">{balance.account.name}</td>
                                 <td className="border px-4 py-1">{balance.account.bank.name}</td>
-                                <td className="border px-4 py-1">{formatCurrency(balance.amount.stringValue, balance.amount.currency)}</td>
+                                <td className={`border px-4 py-1 ${balance.amount.stringValue.startsWith("-") ? "text-red-600" : "text-green-600"}`}>{formatCurrency(balance.amount.stringValue, balance.amount.currency)}</td>
                                 <td className="border px-4 py-1">{balance.description}</td>
                                 <td className="border px-4 py-1">{balance.date}</td>
-                                <td className="border px-4 py-1">{balance.characteristics?.returned}</td>
+                                <td className="border px-4 py-1">{balance.characteristics?.returned ? "TRUE" : "FALSE"}</td>
                             </tr>
                         );
                     })}
