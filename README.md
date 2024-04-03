@@ -14,7 +14,7 @@ alternativt (prod)
 
 1. Kunde varit mycket responsivare
 2. Glömde impementera "last 7 day" och "last 30 days" på charts
-3. Glömde impementera sök / filtrering på ens accounts inidvidual transactions /account/[accountId]
+3. Glömde impementera filtrering (search, reportedType) på ens accounts individual transactions /account/[accountId]
 4. Tests
 
 ## Litet bug
