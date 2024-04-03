@@ -18,6 +18,6 @@ alternativt (prod)
 
 ## Litet bug
 Alltid när man kör npm run dev (förutom första gången) så dykter inte chartsen upp. Men om man refreshar sidan så dyker dem upp.
-Tror det har någonting med att saker server rederas initialt och sedan efter man refreshar sidan så körs den client side. Hann inte felsöka
+Tror det har någonting med att saker server rederas initialt och sedan efter man refreshar sidan så körs den client side (då dykter dem upp igen). Hann inte felsöka
 Dock så händer det inte när man är I prod (npm run build, npm run start)
    
