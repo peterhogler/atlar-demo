@@ -25,7 +25,6 @@ export default function Dashboard({ accounts, balance }: DashboardProps) {
         return matchesName && matchesCurrency;
     });
 
-    console.log(balance);
     return (
         <div className="h-full flex flex-col gap-4">
             <div className="flex flex-col xl:flex-row gap-4">
