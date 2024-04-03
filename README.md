@@ -2,35 +2,22 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+1. npm i
+2. npm run dev
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+alternativt (prod)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. npm run build
+2. npm run start
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Saker jag inte hann göra / kunde gjort mycket bättre
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Kunde varit mycket responsivare
+2. Glömde impementera "last 7 day" och "last 30 days" på charts
+3. Tests
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Litet bug
+Alltid när man kör npm run dev (förutom första gången) så dykter inte chartsen upp. Men om man refreshar sidan så dyker dem upp.
+Tror det har någonting med att saker server rederas initialt och sedan efter man refreshar sidan så körs den client side. Hann inte felsöka
+Dock så händer det inte när man är I prod (npm run build, npm run start)
+   
