@@ -1,4 +1,5 @@
 import { Account } from "@/typings/account.typings";
+import Link from "next/link";
 
 export default function DashboardAccountSummary({ accounts }: { accounts: Account[] }) {
     return (
@@ -22,9 +23,11 @@ export default function DashboardAccountSummary({ accounts }: { accounts: Accoun
                 {accounts &&
                     accounts.map((account: Account) => {
                         return (
-                            <div key={account.id} className="grid place-items-center text-xs border px-2 py-1 rounded-lg bg-white">
-                                {account.name}
-                            </div>
+                            <Link href={`/account/${account.id}`}>
+                                <div key={account.id} className="grid place-items-center text-xs border px-2 py-1 rounded-lg bg-white">
+                                    {account.name}
+                                </div>
+                            </Link>
                         );
                     })}
             </div>
