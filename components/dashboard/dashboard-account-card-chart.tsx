@@ -1,15 +1,16 @@
 "use client";
+import { Balance } from "@/typings/account.typings";
 import { formatDateTick, formatYAxisTick } from "@/utils/chart/formatChart";
 import React from "react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
-export default function DashboardAccountCardChart({ transactions }: { transactions: any }) {
+export default function DashboardAccountCardChart({ transactions }: { transactions: Balance[] }) {
     return (
         <ResponsiveContainer width="100%" height="100%">
             <AreaChart
                 data={transactions}
                 margin={{
-                    top: 5,
+                    top: 0,
                     right: 15,
                     left: 0,
                     bottom: 0,
@@ -17,7 +18,7 @@ export default function DashboardAccountCardChart({ transactions }: { transactio
                 <defs>
                     <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="10%" stopColor="#454752" stopOpacity={0.8} />
-                        <stop offset="95%" stopColor="#454752" stopOpacity={0} />
+                        <stop offset="90%" stopColor="#454752" stopOpacity={0} />
                     </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" />

@@ -1,40 +1,18 @@
 "use client";
 
+import { Balance } from "@/typings/account.typings";
 import { formatDateTick, formatYAxisTick } from "@/utils/chart/formatChart";
 import React from "react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
 
-export default function DashboardAccountChart() {
-    const chartData = [
-        {
-            name: "2024-02-10",
-            uv: 12,
-        },
-        {
-            name: "2024-02-12",
-            uv: 22,
-        },
-        {
-            name: "2024-02-13",
-            uv: 10,
-        },
-        {
-            name: "2024-02-20",
-            uv: 44,
-        },
-        {
-            name: "2024-02-30",
-            uv: 20,
-        },
-        {
-            name: "2024-03-05",
-            uv: 33,
-        },
-        {
-            name: "2024-03-10",
-            uv: 55,
-        },
-    ];
+export default function DashboardAccountChart({ balances }: { balances: Balance[] }) {
+    const modifiedBalances = balances
+        .map((item: Balance) => ({
+            name: item.localDate || item.date,
+            uv: parseFloat(item.amount.stringValue.replace(/,/g, "")),
+        }))
+        .sort((a: any, b: any) => new Date(a.name).getTime() - new Date(b.name).getTime());
+
     return (
         <div className="flex flex-col w-full border  h-full rounded-lg">
             <div className="flex items-center justify-between px-4 py-3  border-b gap-4 bg-white overfl rounded-t-lg">
@@ -53,7 +31,7 @@ export default function DashboardAccountChart() {
             <div className="h-full p-4">
                 <ResponsiveContainer width="100%" height="100%">
                     <AreaChart
-                        data={chartData}
+                        data={modifiedBalances}
                         margin={{
                             top: 10,
                             right: 0,

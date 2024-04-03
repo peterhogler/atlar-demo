@@ -6,20 +6,12 @@ import { formatCurrency } from "@/utils/currency/formatCurrency";
 import { ColumnDef } from "@tanstack/react-table";
 import { Balance, Currency, Transaction } from "@/typings/account.typings";
 import { DataTable } from "../transactions/data-table";
+import { useCalculateItemsPerContainer } from "@/app/hooks/useCalculateItemsPerContainer";
 
 interface Props {
     balances?: any;
     accountId?: string;
 }
-
-// <tr className="border " key={balance.id}>
-//     <td className="border px-4 py-1">{balance.organizationId}</td>
-//     <td className="border px-4 py-1">{balance.accountId}</td>
-//     <td className="border px-4 py-1">{`${balance.amount.currency} ${formatCurrency(balance.amount.stringValue, balance.amount.currency)}`}</td>
-//     <td className="border px-4 py-1">{balance.type}</td>
-//     <td className="border px-4 py-1">{balance.reportedType}</td>
-//     <td className="border px-4 py-1">{balance.localDate}</td>
-// </tr>;
 
 const columns: ColumnDef<Balance>[] = [
     {
@@ -57,7 +49,6 @@ const columns: ColumnDef<Balance>[] = [
         accessorKey: "account.characteristics.returned",
         header: "Returned",
         cell: (info) => {
-            //@ts-ignore
             const returnedValue = info.row.original.characteristics?.returned;
             const displayText = returnedValue ? "TRUE" : "FALSE";
 
@@ -67,18 +58,10 @@ const columns: ColumnDef<Balance>[] = [
 ];
 
 export default function AccountDetailsDashboard({ balances }: Props) {
-    const [transactionsPerPage, setTransactionsPerPage] = useState<number>(0);
     const containerRef = useRef<HTMLDivElement | null>(null);
 
-    useEffect(() => {
-        if (containerRef.current) {
-            const containerHeight = containerRef.current.clientHeight;
-            const rowHeight = 68;
-            const calculatedItemsPerPage = Math.floor(containerHeight / rowHeight);
-
-            setTransactionsPerPage(calculatedItemsPerPage);
-        }
-    }, []);
+    const rowHeight = 68;
+    const transactionsPerPage = useCalculateItemsPerContainer(containerRef, rowHeight);
 
     return (
         <div className="h-full flex flex-col gap-4">
@@ -90,7 +73,7 @@ export default function AccountDetailsDashboard({ balances }: Props) {
                     </div>
                     <div className="underline">Account Details</div>
                 </div>
-                <DashboardAccountChart />
+                <DashboardAccountChart balances={balances} />
             </div>
             <div className="h-full flex flex-col  rounded-lg ">
                 <div className="flex px-4 py-4  bg-white rounded-t-lg border-x border-t">

@@ -29,12 +29,30 @@ const fetchAtlarAccounts = async (): Promise<Account[]> => {
     }
 };
 
+const fetchAtlarAccountBalance = async () => {
+    const response = await fetch(`https://api.atlar.com/v1/transactions`, {
+        method: "GET",
+        headers: {
+            Authorization: `Basic ${Buffer.from(`${USERNAME}:${PASSWORD}`).toString("base64")}`,
+        },
+    });
+
+    if (!response.ok) {
+        throw new Error(`Unable to fetch from API status: ${response.status}`);
+    }
+
+    const { items } = await response.json();
+
+    return items;
+};
+
 export default async function Home() {
     const accounts = await fetchAtlarAccounts();
+    const balance = await fetchAtlarAccountBalance();
     return (
         <main className="h-full flex flex-col gap-4">
             <HeaderNavigation title="Dashboard" />
-            <Dashboard accounts={accounts} />
+            <Dashboard accounts={accounts} balance={balance} />
         </main>
     );
 }

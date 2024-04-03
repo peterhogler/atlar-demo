@@ -7,6 +7,7 @@ import { formatCurrency } from "@/utils/currency/formatCurrency";
 import { Currency, Transaction } from "@/typings/account.typings";
 import { TransactionsProps } from "@/typings/component.typings";
 import Link from "next/link";
+import { useCalculateItemsPerContainer } from "@/app/hooks/useCalculateItemsPerContainer";
 
 const columns: ColumnDef<Transaction>[] = [
     {
@@ -68,8 +69,10 @@ const columns: ColumnDef<Transaction>[] = [
 
 export default function Transactions({ transactions }: TransactionsProps) {
     const [filteredTransactions, setFilteredTransactions] = useState<Transaction[]>([]);
-    const [transactionsPerPage, setTransactionsPerPage] = useState<number>(0);
     const containerRef = useRef<HTMLDivElement | null>(null);
+
+    const rowHeight = 60;
+    const transactionsPerPage = useCalculateItemsPerContainer(containerRef, rowHeight);
 
     const returnedTransactions = transactions.filter((transaction: Transaction) => transaction.characteristics?.returned);
 
@@ -89,15 +92,6 @@ export default function Transactions({ transactions }: TransactionsProps) {
     const handleShowReturnedTransactions = () => {
         setFilteredTransactions(returnedTransactions);
     };
-
-    useEffect(() => {
-        if (containerRef.current) {
-            const containerHeight = containerRef.current.clientHeight;
-            const rowHeight = 59;
-            const calculatedItemsPerPage = Math.floor(containerHeight / rowHeight);
-            setTransactionsPerPage(calculatedItemsPerPage);
-        }
-    }, []);
 
     useEffect(() => {
         setFilteredTransactions(transactions);

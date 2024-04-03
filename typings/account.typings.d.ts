@@ -63,9 +63,11 @@ interface Balance {
     amount: Amount;
     type: string;
     reportedType: string;
+    characteristics?: Characteristics;
     timestamp: string;
     localDate: string;
     version: number;
+    date: string;
 }
 
 interface Owner {

@@ -2,6 +2,7 @@ import { Transaction } from "./account.typings";
 
 interface DashboardProps {
     accounts: Account[];
+    balance: Balance[];
 }
 
 interface DashboardAccountCardProps {

@@ -1,6 +1,6 @@
 import { Account } from "@/typings/account.typings";
 
-export default function DashboardAccountSummary({ accounts }: { accounts?: Account[] }) {
+export default function DashboardAccountSummary({ accounts }: { accounts: Account[] }) {
     return (
         <div className="h-full flex flex-col w-full border rounded-lg bg-gradient-to-t from-transparent to-gray-50">
             <div className="flex items-center px-4 py-5  border-b gap-4 bg-white rounded-t-lg">
@@ -20,7 +20,7 @@ export default function DashboardAccountSummary({ accounts }: { accounts?: Accou
             <hr />
             <div className=" p-4 grid grid-cols-3 align-center gap-3 overflow-scroll">
                 {accounts &&
-                    accounts.map((account: any) => {
+                    accounts.map((account: Account) => {
                         return (
                             <div key={account.id} className="grid place-items-center text-xs border px-2 py-1 rounded-lg bg-white">
                                 {account.name}
