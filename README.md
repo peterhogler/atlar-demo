@@ -14,7 +14,8 @@ alternativt (prod)
 
 1. Kunde varit mycket responsivare
 2. Glömde impementera "last 7 day" och "last 30 days" på charts
-3. Tests
+3. Glömde impementera sök / filtrering på ens accounts inidvidual transactions /account/[accountId]
+4. Tests
 
 ## Litet bug
 Alltid när man kör npm run dev (förutom första gången) så dykter inte chartsen upp. Men om man refreshar sidan så dyker dem upp.
